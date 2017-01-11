@@ -62,15 +62,32 @@ Observing the images we can see that most of them are very similar but with diff
 
 Out of all of them we can see that maybe we could improve the accurary by having more clear images, but it is something to be experimented with.
 
-I'd rather pick an image that has a small dataset so observing that we see the following labels with the least amount of instances representing them in the dataset:
+I'm very interested in how the classifier will work depending on the amount of pictures we have on the label, here are the labels and the amount of images in the dataset.
 
-`(0, 210), (19, 210), (37, 210), (27, 240), (32, 240)`
+`[(0, 210), (19, 210), (37, 210), (27, 240), (32, 240), (41, 240), (42, 240), (24, 270), (29, 270), (39, 300), (21, 330), (20, 360), (40, 360), (22, 390), (36, 390), (6, 420), (16, 420), (34, 420), (30, 450), (23, 510), (28, 540), (26, 600), (15, 630), (33, 689), (14, 780), (31, 780), (17, 1110), (18, 1200), (35, 1200), (11, 1320), (3, 1410), (8, 1410), (7, 1440), (9, 1470), (25, 1500), (5, 1860), (4, 1980), (10, 2010), (38, 2070), (12, 2100), (13, 2160), (1, 2220), (2, 2250)]`
 
-I would also love to get more instance of Label 41 and 42 sadly they are very hard to come by.
+
 
 ## Performance on New Images
+
+I trained my model for 500 EPOCHS and received 0.93 accuracy on my validation set. 
+
+For my new images I had already destroyed my instance and had to do the training again, this time I did it for 100 EPOCHS and received 0.917 on my validation set, not so bad for just a couple hours. I received 0.778 on my new images which is not that good, what I could do to improve this score is add images with different depths or different angles and then retrain my model to handle those. 
 
 
 ## Model Certainty Visualization
 
+We obtain the softmax probabilities on **Traffic_Sign_Classifier-private-data.ipynb** and observe the following:
 
+![exploring the examples more carefully](./predictions.png)
+
+We had 4 misses in our predictions which goes in hand with our 0.77 accuracy we obtained before.
+
+We also note the following:
+
+ - For (7, 1440) it predicted (5, 1860)
+ - For (0, 210) it predicted (3, 1410)
+ - For (14, 780) it predicted (13, 2160)
+ - For (2, 2250) it predicted (12, 2100)
+ 
+We also note that our different 50 km/h image was massively missed as it was confused with a priority road, could this be a case of overfitting for the priority road?
