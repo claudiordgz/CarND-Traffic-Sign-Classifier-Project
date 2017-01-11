@@ -8,7 +8,7 @@ We explore the data in **Data_Exploration.ipynb**, the data contains 39209 train
 
 To condition our problem for analysis we need to have as Zero Mean as possible so that the optimizer can have it easily to decrease the variance in its job. Since we are dealing with images we could just substract 128 and divide by 128 each channel of the image, but thankfully opencv already has a tool to do this for us.
 
-![exploring the dataset](./label_examples.png)
+![exploring the dataset](./label-examples.png)
 
 `cv2.normalize(image, zeros, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)`
 
@@ -56,7 +56,7 @@ But after training multiple runs and the final run for over 12 hours I can safel
 
 We observe images again in **Data_Exploration.ipynb**. 
 
-![exploring the examples more carefully](./label_exploration.png)
+![exploring the examples more carefully](./label-exploration.png)
 
 Observing the images we can see that most of them are very similar but with different levels of brightness, contrast, or color in them, which is very useful as it allows our network to train the same image on multiple configurations. 
 
