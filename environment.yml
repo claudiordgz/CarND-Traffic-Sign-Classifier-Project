@@ -1,12 +1,23 @@
-name: CarND-LeNet-Lab
+name: carnd-term1-gpu
+channels:
+    - https://conda.anaconda.org/menpo
+    - conda-forge
 dependencies:
-- pip >= 9
-- jupyter
-- matplotlib
-- numpy
-- scipy
-- scikit-learn
-- pandas
-- menpo::opencv3
-- pip:
-  - tensorflow >= 0.12.0rc1
+    - python==3.5.2
+    - numpy
+    - matplotlib
+    - jupyter
+    - opencv3
+    - pillow
+    - scikit-learn
+    - scikit-image
+    - scipy
+    - h5py
+    - eventlet
+    - flask-socketio
+    - seaborn
+    - pandas
+    - pip:
+        - moviepy
+        - tensorflow-gpu
+        - git+https://github.com/fchollet/keras.git
